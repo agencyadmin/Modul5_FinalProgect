@@ -13,9 +13,9 @@ void ShowCartage(object cartage)
 static string[] PetsCount(byte petscifer)
 {
     string[] petsnames = new string[petscifer];
-    for (int i = 0; i < petscifer - 1; i++)
+    for (int i = 0; i < petscifer; i++)
     {
-        Console.WriteLine($"Введите имя Вашего {i} -го питомца: ");
+        Console.WriteLine($"Введите имя Вашего {i+1} -го питомца: ");
         petsnames[i] = Console.ReadLine();
     }
         return petsnames;
@@ -25,7 +25,7 @@ static string[] PetsCount(byte petscifer)
 static string[] FavColorGet(byte colorcifer)
 {
     string[] colornames = new string[colorcifer];
-    for (int i = 0; i < colorcifer - 1; i++)
+    for (int i = 0; i < colorcifer; i++)
     {
         Console.WriteLine($"Введите имя Вашего {i} -го любимого цвета: ");
         colornames[i] = Console.ReadLine();
@@ -33,58 +33,78 @@ static string[] FavColorGet(byte colorcifer)
     return colornames;
 
 }
-
-static void checkbyte(byte checkbyte)
+  
+static byte CheckByte(string userenter)
 {
-    if (checkbyte <= 0 | checkbyte > 255) Console.WriteLine("Вы ввели некорректные данные! Повторите ввод правильно!");
+    if (!byte.TryParse(userenter, out byte datatouser)|datatouser<1)
+    {
+       
+        Console.WriteLine("Вы ввели некорректные данные! Повторите ввод цифрами больше нуля! ");
+        UserDataEnter();
+
+    }
+    return datatouser;
+    
 }
+static byte UserDataEnter()
+{   Console.WriteLine("Введите Ваш возраст цифрами и нажмите ввод: ");
+    return CheckByte(Console.ReadLine());
+}
+    Console.WriteLine("Пожайлуста, Введите Ваше Имя и нажмите клавишу ввод: ");
+    User.name = Console.ReadLine();
 
-Console.WriteLine("Пожайлуста, Введите Ваше Имя и нажмите клавишу ввод: ");
-User.name = Console.ReadLine();
+    Console.WriteLine("Какая у Вас Фамилия укажите словом и нажмите клавишу ввод: ");
+    User.surname = Console.ReadLine();
 
-Console.WriteLine("Какая у Вас Фамилия укажите словом и нажмите клавишу ввод: ");
-User.surname = Console.ReadLine();
+    User.age = UserDataEnter();
 
-Console.WriteLine("Введите Ваш возраст цифрами и нажмите ввод: ");
-User.age = byte.Parse(Console.ReadLine());
+/// <summary>
+/// Тут вводит пользователь свой возраст вызывая для этого соответствующую функцию UserAgeEnter, которая и отправляет цифры , введенные пользователем на проверку в метод CheckByte, который 
+/// принимает строку введенную пользователем, пытаеться распарсить ее и в случае удачи возвращает приведенное к байтовому типу целое значение методу UserAgeEnter, а в случае если распарсить
+/// не удалось повторно вызываеться этот метод ввода данных пользователем, пока не введет корректные значения:
+/// </summary>
 
-Console.WriteLine("Есть ли у Вас питомец? Введите ниже строкой слова да/нет или yes/no и нажмите ввод:");
-string ispet = Console.ReadLine();
-byte petscount;
-switch (ispet)
-{
-    case "да":
+    Console.WriteLine("Есть ли у Вас питомец? Введите ниже строкой слова да/нет или yes/no и нажмите ввод: ");
+    string ispet = Console.ReadLine();
+    byte petscount;
+
+    switch (ispet)
+    {
+        case "да":
         case "yes":
-            case "Да":
-                case "Yes":
-                {
+        case "Да":
+        case "Yes":
+            {
                 Console.WriteLine("Введите цифрами количество питомцев до 255 штук:");
                 petscount = byte.Parse(Console.ReadLine());
+
                 string[] petsnames = new string[petscount];
                 petsnames = PetsCount(petscount);
                 Console.WriteLine("Вы ввели следующих питомцев:");
                 foreach (string pet in petsnames) Console.WriteLine(pet);
-                }
-                break;
-    case "нет":
-    case "no":
-    case "Нет":
-    case "No":
-        {
-            Console.WriteLine("Жаль, что у Вас нет домашних питомцев )...");
-        }
-        break;
-    default:
-        Console.WriteLine("Вы ввели некорректные данные! Повторите ввод правильно!");
-        return;
-}
+            }
+            break;
+        case "нет":
+        case "no":
+        case "Нет":
+        case "No":
+            {
+                Console.WriteLine("Жаль, что у Вас нет домашних питомцев )...");
+            }
+            break;
+        default:
+            Console.WriteLine("Вы ввели некорректные данные! Повторите ввод правильно!");
+            return;
+    }
 
 
-Console.WriteLine("Введите цифрами количество любимых цветов 255 штук:");
-var colorscount = byte.Parse(Console.ReadLine());
-string[] favcolornames = new string[colorscount];
+    Console.WriteLine("Введите цифрами количество любимых цветов 255 штук:");
+    var colorscount = byte.Parse(Console.ReadLine());
+    string[] favcolornames = new string[colorscount];
 
-if (colorscount != 0) favcolornames = PetsCount(colorscount); else Console.WriteLine("Жаль, что у Вас нет домашних питомцев )...");
+    if (colorscount != 0) favcolornames = FavColorGet(colorscount);
+        else Console.WriteLine("Жаль, что у Вас нет домашних питомцев )...");
+
 
 
 
