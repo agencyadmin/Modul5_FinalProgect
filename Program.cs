@@ -108,7 +108,7 @@ var iscolornull = byte.TryParse(Console.ReadLine(), out colorscount);
     if (colorscount != 0) favcolornames = FavColorGet(colorscount);
         else Console.WriteLine("Жаль, что у Вас нет любимых цветов, как бы это двусмысленно не звучало )...");
 
-    //Дописать сюда вывод полученного кортежа на экран.
+    //Дописать сюда вывод полученного кортежа на экран возможно foreach .
 
 
 
