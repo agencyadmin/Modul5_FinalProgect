@@ -64,10 +64,22 @@ static byte UserDataEnter()
 /// не удалось повторно вызываеться этот метод ввода данных пользователем, пока не введет корректные значения:
 /// </summary>
 
+    //Console.WriteLine("Есть ли у Вас питомец? Введите ниже строкой слова да/нет или yes/no и нажмите ввод: ");
+    
+    byte petscount;
+while (true)
+{
     Console.WriteLine("Есть ли у Вас питомец? Введите ниже строкой слова да/нет или yes/no и нажмите ввод: ");
     string ispet = Console.ReadLine();
-    byte petscount;
 
+    if (number < 0)
+    {
+        continue;
+    }
+    else if (number == 0)
+    {
+        break;
+    }
     switch (ispet)
     {
         case "да":
@@ -76,10 +88,10 @@ static byte UserDataEnter()
         case "Yes":
         case "da":
         case "Da":
-        {
+            {
                 Console.WriteLine("Введите цифрами количество питомцев до 255 штук:");
                 petscount = byte.Parse(Console.ReadLine());
-
+                //добавить выше вызов функции проверки введенных цифр на соответствие байтовому типу и не нулевому значению!
                 string[] petsnames = new string[petscount];
                 petsnames = PetsCount(petscount);
                 Console.WriteLine("Вы ввели следующих питомцев:");
@@ -96,23 +108,28 @@ static byte UserDataEnter()
         case "но":
         case "Ноу":
         case "ноу":
-        {
+            {
                 Console.WriteLine("Жаль, что у Вас нет домашних питомцев )...");
             }
             break;
-        default:
-            Console.WriteLine("Вы ввели некорректные данные! Повторите ввод правильно!");
-            return;
+            default:
+            Console.WriteLine("Вы ввели некорректные данные! Повторите ввод полжительными цифрами больше нуля!");
+            continue;
     }
+    break;
+}
 // Дописать дальше повторный ввод корректных данных либо через континуе в начало свича , либо через вайл оператор условия, либо же аналогично методу ввода данных цифровых,
 // проверку ввода данных через метод, может быть с помощью рекурсии?
 
     Console.WriteLine("Введите цифрами количество любимых цветов 255 штук:");
-    var colorscount = byte.Parse(Console.ReadLine());
+byte colorscount;
+var iscolornull = byte.TryParse(Console.ReadLine(), out colorscount);
     string[] favcolornames = new string[colorscount];
 
     if (colorscount != 0) favcolornames = FavColorGet(colorscount);
-        else Console.WriteLine("Жаль, что у Вас нет домашних питомцев )...");
+        else Console.WriteLine("Жаль, что у Вас нет любимых цветов, как бы это двусмысленно не звучало )...");
+
+    //Дописать сюда вывод полученного кортежа на экран.
 
 
 
