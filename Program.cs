@@ -1,5 +1,5 @@
 ﻿(string name, string surname, byte age, byte pets, byte colorfavnumber ) User;
-
+//если нужно добавить в кортеж массивы животных и цветов для последующего вывода на экран через кортеж.
 void ShowCartage(object cartage)
 {
     Console.WriteLine($"Вас зовут: {User.name}.");
@@ -27,13 +27,15 @@ static string[] FavColorGet(byte colorcifer)
     string[] colornames = new string[colorcifer];
     for (int i = 0; i < colorcifer; i++)
     {
-        Console.WriteLine($"Введите имя Вашего {i} -го любимого цвета: ");
+        Console.WriteLine($"Введите имя Вашего {i+1} -го любимого цвета: ");
         colornames[i] = Console.ReadLine();
     }
     return colornames;
 
 }
-  
+  // Дописать ниже передачу по ссылке в метод проверки на байт переменную байт через которую будет возвращаться корректно введенное значение байт проверяемым данным пользователя,
+  // а именно возраст, количество животных, количество цветов, для каждого объявить переменную байтовую для принятия значения из метода чек, которое может быть нулевым, что нужно
+  //тоже исключить проверкой на нулевое значение.
 static byte CheckByte(string userenter)
 {
     if (!byte.TryParse(userenter, out byte datatouser)|datatouser<1)
