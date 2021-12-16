@@ -74,7 +74,9 @@ static byte UserDataEnter()
         case "yes":
         case "Да":
         case "Yes":
-            {
+        case "da":
+        case "Da":
+        {
                 Console.WriteLine("Введите цифрами количество питомцев до 255 штук:");
                 petscount = byte.Parse(Console.ReadLine());
 
@@ -88,7 +90,13 @@ static byte UserDataEnter()
         case "no":
         case "Нет":
         case "No":
-            {
+        case "net":
+        case "Net":
+        case "Но":
+        case "но":
+        case "Ноу":
+        case "ноу":
+        {
                 Console.WriteLine("Жаль, что у Вас нет домашних питомцев )...");
             }
             break;
@@ -96,7 +104,8 @@ static byte UserDataEnter()
             Console.WriteLine("Вы ввели некорректные данные! Повторите ввод правильно!");
             return;
     }
-
+// Дописать дальше повторный ввод корректных данных либо через континуе в начало свича , либо через вайл оператор условия, либо же аналогично методу ввода данных цифровых,
+// проверку ввода данных через метод, может быть с помощью рекурсии?
 
     Console.WriteLine("Введите цифрами количество любимых цветов 255 штук:");
     var colorscount = byte.Parse(Console.ReadLine());
