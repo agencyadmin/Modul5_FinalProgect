@@ -72,14 +72,6 @@ while (true)
     Console.WriteLine("Есть ли у Вас питомец? Введите ниже строкой слова да/нет или yes/no и нажмите ввод: ");
     string ispet = Console.ReadLine();
 
-    if (number < 0)
-    {
-        continue;
-    }
-    else if (number == 0)
-    {
-        break;
-    }
     switch (ispet)
     {
         case "да":
