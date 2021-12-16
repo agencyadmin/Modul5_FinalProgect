@@ -70,16 +70,10 @@ static byte UserDataEnter()
 while (true)
 {
     Console.WriteLine("Есть ли у Вас питомец? Введите ниже строкой слова да/нет или yes/no и нажмите ввод: ");
-    string ispet = Console.ReadLine();
-
-    switch (ispet)
+    
+    switch (Console.ReadLine())
     {
-        case "да":
-        case "yes":
-        case "Да":
-        case "Yes":
-        case "da":
-        case "Da":
+        case "да": case "yes": case "Да": case "Yes": case "da": case "Da":
             {
                 Console.WriteLine("Введите цифрами количество питомцев до 255 штук:");
                 petscount = byte.Parse(Console.ReadLine());
@@ -89,21 +83,12 @@ while (true)
                 Console.WriteLine("Вы ввели следующих питомцев:");
                 foreach (string pet in petsnames) Console.WriteLine(pet);
             }
-            break;
-        case "нет":
-        case "no":
-        case "Нет":
-        case "No":
-        case "net":
-        case "Net":
-        case "Но":
-        case "но":
-        case "Ноу":
-        case "ноу":
+                break;
+        case "нет": case "no": case "Нет": case "No": case "net": case "Net": case "Но": case "но": case "Ноу": case "ноу":
             {
                 Console.WriteLine("Жаль, что у Вас нет домашних питомцев )...");
             }
-            break;
+                 break;
             default:
             Console.WriteLine("Вы ввели некорректные данные! Повторите ввод полжительными цифрами больше нуля!");
             continue;
