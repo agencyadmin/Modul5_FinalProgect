@@ -1,4 +1,7 @@
-﻿(string name, string surname, byte age, byte pets, byte colorfavnumber ) User;
+﻿/// <summary>
+/// Объявляем кортеж имя, фамилия, сколько лет, количество любимых животных, количество любимых цветов, массив имен питомцев, массив названий цветов.
+/// </summary>
+(string name, string surname, byte age, byte pets, byte colorfavnumber, string[] petsnames, string[] favcolornames) User;
 //если нужно добавить в кортеж массивы животных и цветов для последующего вывода на экран через кортеж.
 void ShowCartage(object cartage)
 {
@@ -127,8 +130,12 @@ while (true)
     var iscolornull = byte.TryParse(Console.ReadLine(), out colorscount);
     string[] favcolornames = new string[colorscount];
 
-    if (colorscount != 0) favcolornames = FavColorGet(colorscount);
-        else Console.WriteLine("Жаль, что у Вас нет любимых цветов, как бы это двусмысленно не звучало )...");
+if (colorscount != 0)
+{
+    favcolornames = FavColorGet(colorscount);
+    foreach (string color in favcolornames) Console.WriteLine(color);
+}
+else Console.WriteLine("Жаль, что у Вас нет любимых цветов, как бы это двусмысленно не звучало )...");
 
     //Дописать сюда вывод полученного кортежа на экран возможно foreach .
     //возможно на инт поменять байтовые значения.
