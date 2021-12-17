@@ -43,7 +43,7 @@ static string[] FavColorGet(byte colorcifer)
 /// 
 static byte CheckByte(string userenter)
 {
-    if (!(byte.TryParse(userenter, out byte datatouser)&&datatouser>1))
+    if (!(byte.TryParse(userenter, out byte datatouser)&&datatouser>1)) // Также короче это условие: (!byte.TryParse(userenter, out byte datatouser)^datatouser<1)) 
     {
        
         Console.WriteLine("Проверка на 0 и \"-\" :Вы ввели некорректные данные! Повторите ввод цифрами больше нуля! ");
@@ -133,6 +133,6 @@ Console.WriteLine($"Вас зовут: { User.name}.");
 Console.WriteLine($"Ваша фамилия: {User.surname}.");
 Console.WriteLine($"Ваш возраст: {User.age}.");
 Console.WriteLine($"У Вас: {User.petscount} питомцев."); 
-Console.WriteLine($"Вам нравяться: {User.colorfavnumber} цветов.");
+Console.WriteLine($"Вам нравяться: {User.colorfavnumber} цвета.");
 
 //возможно на инт поменять байтовые значения.
