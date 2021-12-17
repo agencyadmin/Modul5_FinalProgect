@@ -106,8 +106,9 @@ while (true)
         case "нет": case "no": case "Нет": case "No": case "net": case "Net": case "Но": case "но": case "Ноу": case "ноу":
             {
                 Console.WriteLine("Жаль, что у Вас нет домашних питомцев )...");
+                User.petscount = 0;
             }
-                 break;
+                break;
             default:
             Console.WriteLine("Вы ввели некорректные данные! Повторите ввод полжительными цифрами больше нуля!");
             continue;
@@ -122,20 +123,17 @@ while (true)
     Console.WriteLine("Введите цифрами количество любимых цветов до 255 штук:");
     User.colorfavnumber = UserDataEnter();
    
-if (User.colorfavnumber != 0)
-{
+
     User.favcolornames = FavColorGet(User.colorfavnumber);
     foreach (string color in User.favcolornames) Console.WriteLine(color);
-}
-else Console.WriteLine("Жаль, что у Вас нет любимых цветов, как бы это двусмысленно не звучало )...");
 
-//Дописать сюда вывод полученного кортежа на экран возможно foreach .
+e//Дописать сюда вывод полученного кортежа на экран возможно foreach .
 //ShowCartage(User); - почему то ошибка вызова метода.
 
 Console.WriteLine($"Вас зовут: {User.name}.");
 Console.WriteLine($"Ваша фамилия: {User.surname}.");
 Console.WriteLine($"Ваш возраст: {User.age}.");
-if (User.petscount != 0) Console.WriteLine($"У Вас: {User.petscount} питомцев."); //возможно проверить не равно ли NULL ?
-if (User.colorfavnumber != 0) Console.WriteLine($"Вам нравяться: {User.colorfavnumber} цветов.");
+Console.WriteLine($"У Вас: {User.petscount} питомцев."); //возможно проверить не равно ли NULL ?
+Console.WriteLine($"Вам нравяться: {User.colorfavnumber} цветов.");
 
 //возможно на инт поменять байтовые значения.
