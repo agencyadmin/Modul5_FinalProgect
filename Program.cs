@@ -68,9 +68,9 @@ static byte UserDataEnter()
 
 void UserNameAgeEnter()
 {
-    Console.WriteLine("Пожайлуста, Введите Ваше Имя и нажмите клавишу ввод: ");
+    Console.WriteLine("Пожайлуста, Введите Ваше Имя и нажмите клавишу ввод: \u270D ");
     User.name = Console.ReadLine();
-    Console.WriteLine("Какая у Вас Фамилия укажите словом и нажмите клавишу ввод: ");
+    Console.WriteLine("Какая у Вас Фамилия укажите словом и нажмите клавишу ввод: \u2642 ");
     User.surname = Console.ReadLine();
     Console.WriteLine("Введите свой возраст в формате и образом указанном ниже \u9759 ");
     User.age = UserDataEnter();
@@ -86,7 +86,7 @@ UserNameAgeEnter();
 
 
 /// Тут вводит пользователь есть ли у него питомцы и их количество, в случае если они есть.  
-byte petscount;
+
 while (true)
 {
     Console.WriteLine("Есть ли у Вас питомец? Введите ниже строкой слова да/нет или yes/no и нажмите ввод: ");
@@ -127,13 +127,13 @@ while (true)
     User.favcolornames = FavColorGet(User.colorfavnumber);
     foreach (string color in User.favcolornames) Console.WriteLine(color);
 
-e//Дописать сюда вывод полученного кортежа на экран возможно foreach .
+//Дописать сюда вывод полученного кортежа на экран возможно foreach .
 //ShowCartage(User); - почему то ошибка вызова метода.
 
-Console.WriteLine($"Вас зовут: {User.name}.");
+Console.WriteLine("Вас зовут: {0}.", User.name);
 Console.WriteLine($"Ваша фамилия: {User.surname}.");
 Console.WriteLine($"Ваш возраст: {User.age}.");
-Console.WriteLine($"У Вас: {User.petscount} питомцев."); //возможно проверить не равно ли NULL ?
+Console.WriteLine($"У Вас: {User.petscount} питомцев."); 
 Console.WriteLine($"Вам нравяться: {User.colorfavnumber} цветов.");
 
 //возможно на инт поменять байтовые значения.
