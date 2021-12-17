@@ -96,12 +96,11 @@ while (true)
         case "да": case "yes": case "Да": case "Yes": case "da": case "Da":
             {
                 Console.WriteLine("Введите цифрами количество питомцев до 255 штук:");
-                petscount = UserDataEnter();
+                User.petscount = UserDataEnter();
                 //добавить выше вызов функции проверки введенных цифр на соответствие байтовому типу и не нулевому значению!
-                string[] petsnames = new string[petscount];
-                petsnames = PetsCount(petscount);
+                User.petsnames = new string[User.petscount];
                 Console.WriteLine("Вы ввели следующих питомцев:");
-                foreach (string pet in petsnames) Console.WriteLine(pet);
+                foreach (string pet in User.petsnames) Console.WriteLine(pet);
             }
                 break;
         case "нет": case "no": case "Нет": case "No": case "net": case "Net": case "Но": case "но": case "Ноу": case "ноу":
@@ -115,18 +114,18 @@ while (true)
     }
     break;
 }
+
+
 // Дописать дальше повторный ввод корректных данных либо через континуе в начало свича , либо через вайл оператор условия, либо же аналогично методу ввода данных цифровых,
 // проверку ввода данных через метод, может быть с помощью рекурсии?
 
     Console.WriteLine("Введите цифрами количество любимых цветов до 255 штук:");
-    byte colorscount = UserDataEnter();
-    var iscolornull = byte.TryParse(Console.ReadLine(), out colorscount);
-    string[] favcolornames = new string[colorscount];
-
-if (colorscount != 0)
+    User.colorfavnumber = UserDataEnter();
+   
+if (User.colorfavnumber != 0)
 {
-    favcolornames = FavColorGet(colorscount);
-    foreach (string color in favcolornames) Console.WriteLine(color);
+    User.favcolornames = FavColorGet(User.colorfavnumber);
+    foreach (string color in User.favcolornames) Console.WriteLine(color);
 }
 else Console.WriteLine("Жаль, что у Вас нет любимых цветов, как бы это двусмысленно не звучало )...");
 
