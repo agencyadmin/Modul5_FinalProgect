@@ -69,7 +69,7 @@ static byte UserDataEnter()
 
 void UserNameAgeEnter()
 {
-    Console.WriteLine("Пожайлуста, Введите Ваше Имя и нажмите клавишу ввод: \u8595 ");
+    Console.WriteLine("Пожайлуста, Введите Ваше Имя и нажмите клавишу ввод: ↓ ◄┘ ");
     User.name = Console.ReadLine();
     Console.WriteLine("Какая у Вас Фамилия укажите словом и нажмите клавишу ввод: \u2642 ");
     User.surname = Console.ReadLine();
@@ -135,4 +135,4 @@ Console.WriteLine($"Ваш возраст: {User.age}.");
 Console.WriteLine($"У Вас: {User.petscount} питомцев."); 
 Console.WriteLine($"Вам нравяться: {User.colorfavnumber} цвета.");
 
-//возможно на инт поменять байтовые значения.
+//возможно на инт поменять байтовые значения что бы точно соответствовать выданному заданию, но byte более лучший тип для поставленной задачи.
