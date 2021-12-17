@@ -40,9 +40,10 @@ static string[] FavColorGet(byte colorcifer)
 /// <summary>
 /// Ниже функция проверки значения на байт и ноль
 /// </summary>
+/// 
 static byte CheckByte(string userenter)
 {
-    if (!byte.TryParse(userenter, out byte datatouser)|datatouser<1)
+    if (!(byte.TryParse(userenter, out byte datatouser)&&datatouser>1))
     {
        
         Console.WriteLine("Проверка на 0 и \"-\" :Вы ввели некорректные данные! Повторите ввод цифрами больше нуля! ");
@@ -68,11 +69,11 @@ static byte UserDataEnter()
 
 void UserNameAgeEnter()
 {
-    Console.WriteLine("Пожайлуста, Введите Ваше Имя и нажмите клавишу ввод: \u9786 ");
+    Console.WriteLine("Пожайлуста, Введите Ваше Имя и нажмите клавишу ввод: \u2642 ");
     User.name = Console.ReadLine();
     Console.WriteLine("Какая у Вас Фамилия укажите словом и нажмите клавишу ввод: \u2642 ");
     User.surname = Console.ReadLine();
-    Console.WriteLine("Введите свой возраст в формате и образом указанном ниже \u86260 ");
+    Console.WriteLine("Введите свой возраст в формате и образом указанном ниже \u8626 ");
     User.age = UserDataEnter();
 }
 
@@ -128,7 +129,7 @@ while (true)
 //Возможен ли вывод полученного кортежа на экран возможно foreach?
 //ShowCartage(User); - почему то ошибка вызова метода.
 
-Console.WriteLine($"Вас зовут: {0}.", User.name) ;
+Console.WriteLine($"Вас зовут: { User.name}.");
 Console.WriteLine($"Ваша фамилия: {User.surname}.");
 Console.WriteLine($"Ваш возраст: {User.age}.");
 Console.WriteLine($"У Вас: {User.petscount} питомцев."); 
