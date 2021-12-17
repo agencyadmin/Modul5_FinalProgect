@@ -69,7 +69,7 @@ static byte UserDataEnter()
 
 void UserNameAgeEnter()
 {
-    Console.WriteLine("Пожайлуста, Введите Ваше Имя и нажмите клавишу ввод: \u2642 ");
+    Console.WriteLine("Пожайлуста, Введите Ваше Имя и нажмите клавишу ввод: \u8595 ");
     User.name = Console.ReadLine();
     Console.WriteLine("Какая у Вас Фамилия укажите словом и нажмите клавишу ввод: \u2642 ");
     User.surname = Console.ReadLine();
