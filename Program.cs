@@ -68,11 +68,11 @@ static byte UserDataEnter()
 
 void UserNameAgeEnter()
 {
-    Console.WriteLine("Пожайлуста, Введите Ваше Имя и нажмите клавишу ввод: \u270D ");
+    Console.WriteLine("Пожайлуста, Введите Ваше Имя и нажмите клавишу ввод: \u9786 ");
     User.name = Console.ReadLine();
     Console.WriteLine("Какая у Вас Фамилия укажите словом и нажмите клавишу ввод: \u2642 ");
     User.surname = Console.ReadLine();
-    Console.WriteLine("Введите свой возраст в формате и образом указанном ниже \u9759 ");
+    Console.WriteLine("Введите свой возраст в формате и образом указанном ниже \u86260 ");
     User.age = UserDataEnter();
 }
 
@@ -98,8 +98,8 @@ while (true)
                 Console.WriteLine("Введите цифрами количество питомцев до 255 штук:");
                 User.petscount = UserDataEnter();
                 //добавить выше вызов функции проверки введенных цифр на соответствие байтовому типу и не нулевому значению!
-                User.petsnames = new string[User.petscount];
-                Console.WriteLine("Вы ввели следующих питомцев:");
+                User.petsnames = PetsCount(User.petscount);
+                Console.WriteLine("Вы ввели следующих питомцев:"); ///  тут идет вывод имен введеннх питомцев
                 foreach (string pet in User.petsnames) Console.WriteLine(pet);
             }
                 break;
@@ -122,15 +122,13 @@ while (true)
 
     Console.WriteLine("Введите цифрами количество любимых цветов до 255 штук:");
     User.colorfavnumber = UserDataEnter();
-   
-
     User.favcolornames = FavColorGet(User.colorfavnumber);
     foreach (string color in User.favcolornames) Console.WriteLine(color);
 
-//Дописать сюда вывод полученного кортежа на экран возможно foreach .
+//Возможен ли вывод полученного кортежа на экран возможно foreach?
 //ShowCartage(User); - почему то ошибка вызова метода.
 
-Console.WriteLine("Вас зовут: {0}.", User.name);
+Console.WriteLine($"Вас зовут: {0}.", User.name) ;
 Console.WriteLine($"Ваша фамилия: {User.surname}.");
 Console.WriteLine($"Ваш возраст: {User.age}.");
 Console.WriteLine($"У Вас: {User.petscount} питомцев."); 
