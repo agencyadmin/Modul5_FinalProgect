@@ -1,19 +1,12 @@
 ﻿/// <summary>
 /// Объявляем кортеж имя, фамилия, сколько лет, количество любимых животных, количество любимых цветов, массив имен питомцев, массив названий цветов.
 /// </summary>
-(string name, string surname, byte age, byte pets, byte colorfavnumber, string[] petsnames, string[] favcolornames) User;
+(string name, string surname, byte age, byte petscount, byte colorfavnumber, string[] petsnames, string[] favcolornames) User;
 //если нужно добавить в кортеж массивы животных и цветов для последующего вывода на экран через кортеж.
-void ShowCartage(object cartage)
-{
-    Console.WriteLine($"Вас зовут: {User.name}.");
-    Console.WriteLine($"Ваша фамилия: {User.surname}.");
-    Console.WriteLine($"Ваш возраст: {User.age}.");
-    Console.WriteLine($"У Вас: {User.pets} питомцев.");
-    Console.WriteLine($"Вам нравяться: {User.colorfavnumber} цветов.");
 
-}
+
 /// <summary>
-/// PetsCount() функция метод возвращающая массив petsnames любимых животных, при отправке в нее проверенного на 0 и тип байт значения количества питомцев, введенного пользователем с клавиатуры.
+/// PetsCount() функция метод возвращающая МАССИВ petsnames любимых животных, при отправке в нее проверенного на 0 и тип байт значения количества питомцев, введенного пользователем с клавиатуры.
 /// </summary>
 static string[] PetsCount(byte petscifer)
 {
@@ -27,7 +20,7 @@ static string[] PetsCount(byte petscifer)
    
 }
 /// <summary>
-/// PetsCount() функция метод возвращающая массив colornames любимых цветов, при отправке в нее проверенного на 0 и тип байт значения количества цветов, введенного пользователем с клавиатуры.
+/// PetsCount() функция метод возвращающая МАССИВ colornames любимых цветов, при отправке в нее проверенного на 0 и тип байт значения количества цветов, введенного пользователем с клавиатуры.
 /// </summary>
 static string[] FavColorGet(byte colorcifer)
 {
@@ -137,8 +130,13 @@ if (colorscount != 0)
 }
 else Console.WriteLine("Жаль, что у Вас нет любимых цветов, как бы это двусмысленно не звучало )...");
 
-    //Дописать сюда вывод полученного кортежа на экран возможно foreach .
-    //возможно на инт поменять байтовые значения.
+//Дописать сюда вывод полученного кортежа на экран возможно foreach .
+//ShowCartage(User); - почему то ошибка вызова метода.
 
+Console.WriteLine($"Вас зовут: {User.name}.");
+Console.WriteLine($"Ваша фамилия: {User.surname}.");
+Console.WriteLine($"Ваш возраст: {User.age}.");
+if (User.petscount != 0) Console.WriteLine($"У Вас: {User.petscount} питомцев."); //возможно проверить не равно ли NULL ?
+if (User.colorfavnumber != 0) Console.WriteLine($"Вам нравяться: {User.colorfavnumber} цветов.");
 
-
+//возможно на инт поменять байтовые значения.
