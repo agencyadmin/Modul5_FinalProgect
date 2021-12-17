@@ -96,7 +96,7 @@ while (true)
         case "да": case "yes": case "Да": case "Yes": case "da": case "Da":
             {
                 Console.WriteLine("Введите цифрами количество питомцев до 255 штук:");
-                petscount = byte.Parse(Console.ReadLine());
+                petscount = UserDataEnter();
                 //добавить выше вызов функции проверки введенных цифр на соответствие байтовому типу и не нулевому значению!
                 string[] petsnames = new string[petscount];
                 petsnames = PetsCount(petscount);
@@ -119,7 +119,7 @@ while (true)
 // проверку ввода данных через метод, может быть с помощью рекурсии?
 
     Console.WriteLine("Введите цифрами количество любимых цветов до 255 штук:");
-    byte colorscount;
+    byte colorscount = UserDataEnter();
     var iscolornull = byte.TryParse(Console.ReadLine(), out colorscount);
     string[] favcolornames = new string[colorscount];
 
