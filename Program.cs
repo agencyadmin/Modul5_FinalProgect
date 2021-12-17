@@ -9,7 +9,9 @@ void ShowCartage(object cartage)
     Console.WriteLine($"Вам нравяться: {User.colorfavnumber} цветов.");
 
 }
-
+/// <summary>
+/// PetsCount() функция метод возвращающая массив petsnames любимых животных, при отправке в нее проверенного на 0 и тип байт значения количества питомцев, введенного пользователем с клавиатуры.
+/// </summary>
 static string[] PetsCount(byte petscifer)
 {
     string[] petsnames = new string[petscifer];
@@ -21,7 +23,9 @@ static string[] PetsCount(byte petscifer)
         return petsnames;
    
 }
-
+/// <summary>
+/// PetsCount() функция метод возвращающая массив colornames любимых цветов, при отправке в нее проверенного на 0 и тип байт значения количества цветов, введенного пользователем с клавиатуры.
+/// </summary>
 static string[] FavColorGet(byte colorcifer)
 {
     string[] colornames = new string[colorcifer];
@@ -36,29 +40,45 @@ static string[] FavColorGet(byte colorcifer)
   // Дописать ниже передачу по ссылке в метод проверки на байт переменную байт через которую будет возвращаться корректно введенное значение байт проверяемым данным пользователя,
   // а именно возраст, количество животных, количество цветов, для каждого объявить переменную байтовую для принятия значения из метода чек, которое может быть нулевым, что нужно
   //тоже исключить проверкой на нулевое значение.
+
+/// <summary>
+/// Ниже функция проверки значения на байт и ноль
+/// </summary>
 static byte CheckByte(string userenter)
 {
     if (!byte.TryParse(userenter, out byte datatouser)|datatouser<1)
     {
        
-        Console.WriteLine("Вы ввели некорректные данные! Повторите ввод цифрами больше нуля! ");
+        Console.WriteLine("Проверка на 0 и \"-\" :Вы ввели некорректные данные! Повторите ввод цифрами больше нуля! ");
         UserDataEnter();
 
     }
     return datatouser;
     
 }
+/// <summary>
+/// Метод для ввода первичных данных пользователя имени, фамилии и возраста.
+/// </summary>
 static byte UserDataEnter()
-{   Console.WriteLine("Введите Ваш возраст цифрами и нажмите ввод: ");
+
+{  
+    Console.WriteLine("Введите Ваши данные цифрами и нажмите ввод: ");
     return CheckByte(Console.ReadLine());
 }
+
+/// <summary>
+/// Метод для ввода первичных данных пользователя имени, фамилии и возраста.
+/// </summary>  
+
+void UserNameAgeEnter()
+{
     Console.WriteLine("Пожайлуста, Введите Ваше Имя и нажмите клавишу ввод: ");
     User.name = Console.ReadLine();
-
     Console.WriteLine("Какая у Вас Фамилия укажите словом и нажмите клавишу ввод: ");
     User.surname = Console.ReadLine();
-
+    Console.WriteLine("Введите свой возраст в формате и образом указанном ниже \u9759 ");
     User.age = UserDataEnter();
+}
 
 /// <summary>
 /// Тут вводит пользователь свой возраст вызывая для этого соответствующую функцию UserAgeEnter, которая и отправляет цифры , введенные пользователем на проверку в метод CheckByte, который 
@@ -66,9 +86,11 @@ static byte UserDataEnter()
 /// не удалось повторно вызываеться этот метод ввода данных пользователем, пока не введет корректные значения:
 /// </summary>
 
-    //Console.WriteLine("Есть ли у Вас питомец? Введите ниже строкой слова да/нет или yes/no и нажмите ввод: ");
-    
-    byte petscount;
+UserNameAgeEnter();
+
+
+/// Тут вводит пользователь есть ли у него питомцы и их количество, в случае если они есть.  
+byte petscount;
 while (true)
 {
     Console.WriteLine("Есть ли у Вас питомец? Введите ниже строкой слова да/нет или yes/no и нажмите ввод: ");
@@ -100,16 +122,16 @@ while (true)
 // Дописать дальше повторный ввод корректных данных либо через континуе в начало свича , либо через вайл оператор условия, либо же аналогично методу ввода данных цифровых,
 // проверку ввода данных через метод, может быть с помощью рекурсии?
 
-    Console.WriteLine("Введите цифрами количество любимых цветов 255 штук:");
-byte colorscount;
-var iscolornull = byte.TryParse(Console.ReadLine(), out colorscount);
+    Console.WriteLine("Введите цифрами количество любимых цветов до 255 штук:");
+    byte colorscount;
+    var iscolornull = byte.TryParse(Console.ReadLine(), out colorscount);
     string[] favcolornames = new string[colorscount];
 
     if (colorscount != 0) favcolornames = FavColorGet(colorscount);
         else Console.WriteLine("Жаль, что у Вас нет любимых цветов, как бы это двусмысленно не звучало )...");
 
     //Дописать сюда вывод полученного кортежа на экран возможно foreach .
-
+    //возможно на инт поменять байтовые значения.
 
 
 
